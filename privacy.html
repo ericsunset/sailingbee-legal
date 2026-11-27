@@ -44,12 +44,12 @@
     <tr><td>Device location (optional)</td><td>Showing sails near you. See section 2.</td></tr>
     <tr><td>Crash and diagnostic data</td><td>Finding and fixing errors. See Sentry in section 4.</td></tr>
   </table>
-  <p>We do <strong>not</strong> collect your contacts, and we do not track you across other apps or websites.</p>
+  <p>We do <strong>not</strong> collect your contacts.</p>
 
   <h2>2. Location</h2>
   <p>Location is optional. If you allow it, the app reads your device location only while you use the app, never in the background. It uses the location only to show sails near you and to sort them by distance.</p>
   <p>When you browse nearby sails, the app sends your coordinates with that request. Our server uses them to find and sort nearby sails, and then discards them. We do not save your location in our database or on your profile, and we never show it to other users or sell it.</p>
-  <p>Like every request to our service, a nearby browse request, including the coordinates, can appear in short-lived service logs: our Cloudflare request logs, which we keep for 7 days, and Sentry error and performance reports (see section 4). We use these logs only to run the service and fix problems.</p>
+  <p>Our service logs record each request to our server, and a nearby browse request includes the coordinates. Cloudflare keeps these request logs for 7 days. Sentry error and performance reports can also include the request (see section 4). We use these logs only to run the service and fix problems.</p>
   <p>You can turn location off at any time in your device's Settings app. You can still browse and search sails without it.</p>
 
   <h2>3. How we use your data</h2>
@@ -71,20 +71,21 @@
     <tr><td><strong>Apple Push Notification service</strong></td><td>Delivers notifications</td><td>Your device push token and the notification text, such as a sail title, a sailor's name, or a chat message preview.</td></tr>
     <tr><td><strong>Sentry</strong></td><td>Crash reporting, error monitoring, and performance monitoring</td><td>Crash and error reports, performance traces, device and app details, your user ID, email address, and IP address, and the addresses of recent requests from the app, which can include your coordinates for nearby browsing.</td></tr>
   </table>
-  <p>We use these services under their data processing terms, consistent with applicable privacy law.</p>
+  <p>Each provider handles this data under its data processing terms.</p>
 
   <h2>5. Data retention and account deletion</h2>
   <p>We keep your data as long as your account is active. You can delete your account at any time in the app: <strong>Profile → Delete account</strong>. Deletion starts at once, and it cannot be undone.</p>
   <p><strong>Deleted right away:</strong></p>
   <ul>
     <li>Your profile: email address, display name, experience level, bio, and sail counts</li>
-    <li>Your device push tokens, your notifications, your blocks, and your chat read status</li>
-    <li>Your joins on upcoming sails. If you were on the crew, the host is notified that you left.</li>
-    <li>Your upcoming sails as host. They are cancelled, and their crew is notified.</li>
+    <li>Your device push tokens, your notifications, and your chat read status</li>
+    <li>The blocks you made, and the blocks other users made against you</li>
+    <li>Your joins on upcoming sails. If you were on the crew, we tell the host that you left.</li>
   </ul>
-  <p><strong>Deleted within minutes:</strong> your profile photo and your sign-in account. We normally delete them right away. If a step fails, an automatic job finishes it, usually within 15 minutes.</p>
+  <p><strong>Deleted within minutes:</strong> your profile photo and your sign-in account. We normally delete them right away. If a step fails, a scheduled job tries again every 15 minutes until it is done.</p>
   <p><strong>Kept without your identity:</strong></p>
   <ul>
+    <li>We cancel your upcoming sails as host and tell their crew. The cancelled sails stay, as your other posts do.</li>
     <li>Your posts and chat messages stay for the other sailors. They are no longer linked to you, and they show "Deleted account" in place of your name.</li>
     <li>Your place in past sails stays as "Deleted account", so the crew list stays correct.</li>
     <li>Other users' notifications about you show "Deleted account" in place of your name.</li>
@@ -93,7 +94,7 @@
   <p><strong>Logs and backups:</strong> data in service logs and Sentry reports stays until those systems remove it at the end of their retention periods. We do not keep database backups at this time. If we add backups, we will update this policy with how long a backup can hold deleted data.</p>
 
   <h2>6. Your rights</h2>
-  <p>You can request a copy of your data, correction of inaccurate data, or deletion of your account at any time. Delete your account in the app, or use the Help & Support form in the app or email <a href="mailto:hello@sailingbee.us">hello@sailingbee.us</a>.</p>
+  <p>You can request a copy of your data, correction of inaccurate data, or deletion of your account at any time. Delete your account in the app, or use the Help &amp; support form in the app or email <a href="mailto:hello@sailingbee.us">hello@sailingbee.us</a>.</p>
   <p>If you are in the EU or UK, you have additional rights under GDPR. If you are in California, you have additional rights under CCPA. Contact us to exercise any of these rights.</p>
 
   <h2>7. Changes to this policy</h2>
