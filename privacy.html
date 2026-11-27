@@ -25,24 +25,34 @@
 <div class="wrap">
   <div class="brand">SailingBee</div>
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective date: May 2026 &nbsp;·&nbsp; Last updated: May 2026</p>
+  <p class="meta">Effective date: November 27, 2026 &nbsp;·&nbsp; Last updated: November 27, 2026</p>
 
-  <p>We built SailingBee for sailors, not for data collection. Here's exactly what we collect, why, and how you can control it.</p>
+  <p>We built SailingBee for sailors, not for data collection. Here's exactly what we collect, why, who receives it, and how you can control it.</p>
 
   <h2>1. What we collect</h2>
   <table>
     <tr><th>Data</th><th>Why we collect it</th></tr>
-    <tr><td>Email address</td><td>Account authentication and service communications</td></tr>
-    <tr><td>Display name</td><td>Shown to other users on your profile and posts</td></tr>
+    <tr><td>Email address</td><td>Sign-in codes, account authentication, and replies to your support requests</td></tr>
+    <tr><td>Display name</td><td>Shown to other users on your profile, posts, sails, and chat messages</td></tr>
     <tr><td>Experience level</td><td>Shown on your profile to help skippers evaluate crew</td></tr>
     <tr><td>Bio</td><td>Optional — shown on your profile</td></tr>
-    <tr><td>Profile photo</td><td>Optional — shown on your profile</td></tr>
-    <tr><td>Posts and messages</td><td>Core app functionality</td></tr>
+    <tr><td>Profile photo</td><td>Optional — shown on your profile. Anyone with the photo's web address can open it.</td></tr>
+    <tr><td>Posts, joins, and chat messages</td><td>Core app functionality. Posts are public: anyone who uses the app or opens a sail's share link can see them.</td></tr>
+    <tr><td>Blocked users</td><td>To hide the people you block and stop them from joining your sails</td></tr>
+    <tr><td>Support and report messages</td><td>To answer you and to investigate safety or abuse reports</td></tr>
     <tr><td>Device push token</td><td>Sending you notifications you've opted into</td></tr>
+    <tr><td>Device location (optional)</td><td>Showing sails near you. See section 2.</td></tr>
+    <tr><td>Crash and diagnostic data</td><td>Finding and fixing errors. See Sentry in section 4.</td></tr>
   </table>
-  <p>We do <strong>not</strong> collect location data, contacts, or any data beyond what's listed above.</p>
+  <p>We do <strong>not</strong> collect your contacts, and we do not track you across other apps or websites.</p>
 
-  <h2>2. How we use your data</h2>
+  <h2>2. Location</h2>
+  <p>Location is optional. If you allow it, the app reads your device location only while you use the app, never in the background. It uses the location only to show sails near you and to sort them by distance.</p>
+  <p>When you browse nearby sails, the app sends your coordinates with that request. Our server uses them to find and sort nearby sails, and then discards them. We do not save your location in our database or on your profile, and we never show it to other users or sell it.</p>
+  <p>Like every request to our service, a nearby browse request, including the coordinates, can appear in short-lived service logs: our Cloudflare request logs, which we keep for 7 days, and Sentry error and performance reports (see section 4). We use these logs only to run the service and fix problems.</p>
+  <p>You can turn location off at any time in your device's Settings app. You can still browse and search sails without it.</p>
+
+  <h2>3. How we use your data</h2>
   <ul>
     <li>To operate and improve the SailingBee app</li>
     <li>To connect crew with skippers</li>
@@ -51,24 +61,45 @@
   </ul>
   <p>We do not sell your data. We do not use it for advertising.</p>
 
-  <h2>3. Third-party services</h2>
+  <h2>4. Third-party services</h2>
+  <p>We use these service providers to run SailingBee. Each one receives only what it needs:</p>
+  <table>
+    <tr><th>Provider</th><th>What it does</th><th>What it receives</th></tr>
+    <tr><td><strong>Supabase</strong></td><td>Database, sign-in, and chat</td><td>Your account and profile data, posts, joins, chat messages, blocks, support messages, and device push token. Your email address, and your IP address when you sign in or use chat.</td></tr>
+    <tr><td><strong>Cloudflare</strong></td><td>Runs our server (Workers), stores profile photos (R2), and sends email (Email Service)</td><td>Every request the app makes to our server, including your IP address and, for nearby browsing, your coordinates. Your profile photo. Your email address and sign-in code when we email you a code. The text of your support messages, which we email to our support inbox.</td></tr>
+    <tr><td><strong>Google Places</strong></td><td>Venue search when you choose a place for a sail</td><td>The text you type in the venue search and the place you pick. Our server sends these, so Google does not receive your account details or your IP address.</td></tr>
+    <tr><td><strong>Apple Push Notification service</strong></td><td>Delivers notifications</td><td>Your device push token and the notification text, such as a sail title, a sailor's name, or a chat message preview.</td></tr>
+    <tr><td><strong>Sentry</strong></td><td>Crash reporting, error monitoring, and performance monitoring</td><td>Crash and error reports, performance traces, device and app details, your user ID, email address, and IP address, and the addresses of recent requests from the app, which can include your coordinates for nearby browsing.</td></tr>
+  </table>
+  <p>We use these services under their data processing terms, consistent with applicable privacy law.</p>
+
+  <h2>5. Data retention and account deletion</h2>
+  <p>We keep your data as long as your account is active. You can delete your account at any time in the app: <strong>Profile → Delete account</strong>. Deletion starts at once, and it cannot be undone.</p>
+  <p><strong>Deleted right away:</strong></p>
   <ul>
-    <li><strong>Supabase</strong> — database, file storage, and authentication infrastructure</li>
-    <li><strong>Sentry</strong> — crash reporting and error monitoring</li>
+    <li>Your profile: email address, display name, experience level, bio, and sail counts</li>
+    <li>Your device push tokens, your notifications, your blocks, and your chat read status</li>
+    <li>Your joins on upcoming sails. If you were on the crew, the host is notified that you left.</li>
+    <li>Your upcoming sails as host. They are cancelled, and their crew is notified.</li>
   </ul>
-  <p>Both services are used under data processing agreements consistent with applicable privacy law.</p>
+  <p><strong>Deleted within minutes:</strong> your profile photo and your sign-in account. We normally delete them right away. If a step fails, an automatic job finishes it, usually within 15 minutes.</p>
+  <p><strong>Kept without your identity:</strong></p>
+  <ul>
+    <li>Your posts and chat messages stay for the other sailors. They are no longer linked to you, and they show "Deleted account" in place of your name.</li>
+    <li>Your place in past sails stays as "Deleted account", so the crew list stays correct.</li>
+    <li>Other users' notifications about you show "Deleted account" in place of your name.</li>
+    <li>Your support and report messages stay as a record, but we replace your email address and the message text, and the record is no longer linked to you. Copies that we already emailed to our support inbox stay in that inbox.</li>
+  </ul>
+  <p><strong>Logs and backups:</strong> data in service logs and Sentry reports stays until those systems remove it at the end of their retention periods. We do not keep database backups at this time. If we add backups, we will update this policy with how long a backup can hold deleted data.</p>
 
-  <h2>4. Data retention</h2>
-  <p>We keep your data as long as your account is active. When you delete your account, your profile, posts, and messages are permanently deleted. This process may take up to 30 days to complete across all systems.</p>
-
-  <h2>5. Your rights</h2>
-  <p>You can request a copy of your data, correction of inaccurate data, or deletion of your account at any time. Use the Help & Support form in the app or email <a href="mailto:hello@sailingbee.us">hello@sailingbee.us</a>.</p>
+  <h2>6. Your rights</h2>
+  <p>You can request a copy of your data, correction of inaccurate data, or deletion of your account at any time. Delete your account in the app, or use the Help & Support form in the app or email <a href="mailto:hello@sailingbee.us">hello@sailingbee.us</a>.</p>
   <p>If you are in the EU or UK, you have additional rights under GDPR. If you are in California, you have additional rights under CCPA. Contact us to exercise any of these rights.</p>
 
-  <h2>6. Changes to this policy</h2>
+  <h2>7. Changes to this policy</h2>
   <p>We'll notify you by email before any material changes take effect.</p>
 
-  <h2>7. Contact</h2>
+  <h2>8. Contact</h2>
   <p>Email us at <a href="mailto:hello@sailingbee.us">hello@sailingbee.us</a>.</p>
 </div>
 </body>
